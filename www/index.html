@@ -19,9 +19,18 @@ function getID() {
 	
 	var testReturn = "Shea, J. J., & Sisk, M. L. (2010). Complex projectile technology and <i>Homo sapiens</i> dispersal into western Eurasia. PaleoAnthropology, 2010, 100-122."
 	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("mla_area").innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("GET", "test", true);
+	xhttp.send();
 	
 	
-	document.getElementById("mla_area").innerHTML = testReturn;
+	
+	//document.getElementById("mla_area").innerHTML = testReturn;
 }
 </script>
 

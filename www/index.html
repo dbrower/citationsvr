@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<script src="js/jquery.js"></script> 
+	<script  src="js/citation.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/citation.css" />
+</head>
 <body>
 
 <p>Enter the URL to a curate record</p>
 
-<input type="text" id="IDentryBox" size="60" value="https://curate.nd.edu/concern/datasets/jd472v2628s">
+Curate ID: <input type="text" id="IDentryBox" size="60" value="jd472v2628s" />
 <select id = "styleID">
   <option value="all">All</option>
-  <option value="MLA">MLA</option>
-  <option value="APA">APA</option>
-  <option value="Chicago">Chicago</option>
-  <option value="Harvard">Harvard</option>
-  <option value="Vancouver">Vancouver</option>
+  <option value="modern-language-association-with-url">MLA</option>
+  <option value="apa">APA</option>
+  <option value="chicago-fullnote-bibliography">Chicago</option>
+  <option value="harvard1">Harvard</option>
+  <option value="vancouver">Vancouver</option>
 
 </select>
-<input type="button" value="Submit" onClick="getID();"> 
-<br>
-<br>
+<input id="submit_button" type="button" value="Submit" /> 
+<br />
+<br />
 <label for="mla_area">Citations: </label>
 <br>
 
 <div id="mla_area" contenteditable> </div>
 
-<script>
-function getID() {
-    var wholeURL= document.getElementById("IDentryBox").value;
-    var justID = wholeURL.substr(wholeURL.lastIndexOf('/') + 1)
-	var styleType = document.getElementById("styleID").value;
-	
-	var testReturn = "Shea, J. J., & Sisk, M. L. (2010). Complex projectile technology and <i>Homo sapiens</i> dispersal into western Eurasia. PaleoAnthropology, 2010, 100-122."
-	
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			document.getElementById("mla_area").innerHTML = xhttp.responseText;
-		}
-	};
-	xhttp.open("GET", "test", true);
-	xhttp.send();
-	
-	
-	
-	//document.getElementById("mla_area").innerHTML = styleType;
-}
-</script>
 
 </body>
 </html>

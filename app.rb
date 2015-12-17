@@ -21,7 +21,9 @@ solr = RSolr.connect :url => ENV['SOLR_URL']
 def process_citation(style, item)
   cp = CiteProc::Processor.new style: style, format:'html'
   cp << item
-  cp.render :bibliography, id: item.id
+  r = cp.render :bibliography, id: item.id
+  # for some reason render returns a list
+  r.first
 end
 
 
@@ -46,19 +48,14 @@ get '/citation/:id' do |id|
 #    item.DOI = dois.first
 #  end
 
-  result = STYLES.map do |style|
-    process_citation(style, item)
+  result = {}
+  STYLES.map do |style|
+    result[style] = process_citation(style, item)
   end
-  result.to_json
+
+  erb :citation_list, locals: {result: result}
 end
 
 get '/' do
   redirect to('index.html')
 end
-
-get '/z' do
-  erb :z
-end
-
-
-

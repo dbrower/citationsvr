@@ -7,5 +7,7 @@ group :default do
   gem 'citeproc-ruby'
   gem 'csl-styles'
   gem 'sinatra'
+  gem 'rsolr'
+  gem 'unicode'
 end
 

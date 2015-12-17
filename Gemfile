@@ -6,8 +6,6 @@ group :default do
   gem 'nokogiri'
   gem 'citeproc-ruby'
   gem 'csl-styles'
-  gem 'rack'
-  gem 'unicorn'
   gem 'sinatra'
 end
 

@@ -5,15 +5,25 @@
 <p>Enter the URL to a curate record</p>
 
 <input type="text" id="IDentryBox" size="60" value="https://curate.nd.edu/concern/datasets/jd472v2628s"><input type="button" value="Submit" onClick="getID();"> 
+<br>
+<br>
+<label for="mla_area">MLA: </label>
+<br>
+
+<div id="mla_area" contenteditable> </div>
+<!textarea style="resize:none" rows="5" name="mla_area" id="mla_area" cols = "65" ></textarea>
+
 <script>
+testString = "Shea, J. J., & Sisk, M. L. (2010). Complex projectile technology and <i>Homo sapiens</i> dispersal into western Eurasia. PaleoAnthropology, 2010, 100-122."
 function getID() {
     var wholeURL= document.getElementById("IDentryBox").value;
     var justID = wholeURL.substr(wholeURL.lastIndexOf('/') + 1)
 
-    window.alert("The ID is:  " + justID)
+    //alert("The ID is:  " + justID)
 	//Process the heck out of italic
 	//Get back the record in html
 	//print the html as a little more in a popup
+	document.getElementById("mla_area").innerHTML = testString;
 }
 </script>
 

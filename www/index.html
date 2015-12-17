@@ -4,7 +4,17 @@
 
 <p>Enter the URL to a curate record</p>
 
-<input type="text" id="IDentryBox" size="60" value="https://curate.nd.edu/concern/datasets/jd472v2628s"><input type="button" value="Submit" onClick="getID();"> 
+<input type="text" id="IDentryBox" size="60" value="https://curate.nd.edu/concern/datasets/jd472v2628s">
+<select id = "styleID">
+  <option value="all">All</option>
+  <option value="MLA">MLA</option>
+  <option value="APA">APA</option>
+  <option value="Chicago">Chicago</option>
+  <option value="Harvard">Harvard</option>
+  <option value="Vancouver">Vancouver</option>
+
+</select>
+<input type="button" value="Submit" onClick="getID();"> 
 <br>
 <br>
 <label for="mla_area">Citations: </label>
@@ -16,6 +26,7 @@
 function getID() {
     var wholeURL= document.getElementById("IDentryBox").value;
     var justID = wholeURL.substr(wholeURL.lastIndexOf('/') + 1)
+	var styleType = document.getElementById("styleID").value;
 	
 	var testReturn = "Shea, J. J., & Sisk, M. L. (2010). Complex projectile technology and <i>Homo sapiens</i> dispersal into western Eurasia. PaleoAnthropology, 2010, 100-122."
 	
@@ -30,7 +41,7 @@ function getID() {
 	
 	
 	
-	//document.getElementById("mla_area").innerHTML = testReturn;
+	//document.getElementById("mla_area").innerHTML = styleType;
 }
 </script>
 

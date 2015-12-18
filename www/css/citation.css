@@ -1,4 +1,26 @@
+.contain{
+	
+}
+
+.querybox{
+	border-radius: 25px;
+	border: 2px solid black;
+	width: 700px;
+	padding: 40px;
+}
+#citation_area{
+	display: table;
+}
 .citation{
-	visibility: hidden;
-	float: left;
+	display: none;
+}
+.cite{
+	display: table-cell;
+	padding: .5em;
+	width: 350px;
+}
+.format{
+	display: table-cell;
+	padding: .5em;
+	width: 100px;
 }

@@ -7,9 +7,10 @@
 </head>
 <body>
 
-<p>Enter the URL to a curate record</p>
-
-Curate ID: <input type="text" id="IDentryBox" size="60" value="jd472v2628s" />
+<div class="contain">
+<div class="querybox">
+<p>Enter the ID for a curate record and choose a citation format</p>
+<input type="text" id="IDentryBox" size="60" value="jd472v2628s" />
 <select id = "styleID">
   <option value="all">All</option>
   <option value="modern-language-association-with-url">MLA</option>
@@ -20,12 +21,17 @@ Curate ID: <input type="text" id="IDentryBox" size="60" value="jd472v2628s" />
 
 </select>
 <input id="submit_button" type="button" value="Submit" /> 
+
+</div>
+
 <br />
 <br />
-<label for="mla_area">Citations: </label>
+<label for="citation_area">Citations: </label>
 <br>
 
-<div id="mla_area" contenteditable> </div>
+<div id="citation_area"> </div>
+
+</div>
 
 
 </body>

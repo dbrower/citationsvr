@@ -1,5 +1,19 @@
-$(document).ready(
+$(document).ready( 
 	function(){
+
+
+        $(window).resize(function(){
+
+                 $('.contain').css({
+                           position:'absolute',
+                           left: ($(window).width() - $('.contain').outerWidth())/2,
+                           top: ($(window).height() - $('.contain').outerHeight())/4
+                   });
+
+           });
+
+
+
 	$(document).on('click', '#submit_button',
 		function(){
 			cburl = 'http://citation.library.nd.edu/citation/';
@@ -8,27 +22,37 @@ $(document).ready(
 				function(data, status){
 					opt = $("#styleID option:selected").val();
 					CiteOpt = $("#styleID option:selected").text();
-					$("#mla_area").html(data);
+					$("#citation_area").html(data);
 					if(opt == "all"){
-						$(".citation").css("visibility", "visible");
+						$(".citation").css("display", "table-row");
 						$("#styleID option").each(
 							function(){
 								label = $(this).text();
 								val = $(this).val();
 								ht = $("#" + val);
 								if(label != 'All'){
-									ht.prepend('<div="format">' + label + '</div>');
+									ht.prepend('<div class="format">' + label + '</div>');
 								}	
 							}
 						);
 
 					}else{
-						$("#" + opt).css("visibility", "visible");
-                                                $("#" + opt).prepend('<div="format">' + CiteOpt + '</div>');
+						$("#" + opt).css("display", "block");
+                                                $("#" + opt).prepend('<div class="format">' + CiteOpt + '</div>');
 
 					}
 
 			});
 		});	
 
+
 	});
+
+	function onrsz(){
+                 $('.contain').css({
+                           position:'absolute',
+                           left: ($(window).width() - $('.contain').outerWidth())/2,
+                           top: ($(window).height() - $('.contain').outerHeight())/4
+                   });
+	}
+
